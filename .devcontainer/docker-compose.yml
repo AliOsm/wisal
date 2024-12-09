@@ -1,0 +1,26 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+
+    volumes:
+      - ../..:/workspaces:cached
+      - $HOME/.ssh/:/home/vscode/.ssh/
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: sleep infinity
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  meilisearch:
+    image: getmeili/meilisearch:v1.11.3
+    restart: unless-stopped
+    volumes:
+      - meilisearch-data:/meili_data
+    ports:
+      - 7700:7700
+
+volumes:
+  meilisearch-data:

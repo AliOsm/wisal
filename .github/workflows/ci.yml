@@ -1,0 +1,75 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [ main ]
+
+jobs:
+  no-new-erbs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Count ERB files in the PR
+        run: |
+          erb_files_pr=$(find app -type f -name "*.erb" ! -name "*.turbo_stream.erb" | wc -l)
+          echo "ERB_FILES_PR=${erb_files_pr}" >> $GITHUB_ENV
+      - name: Count ERB files in the main branch
+        run: |
+          git fetch origin main
+          git checkout origin/main
+          erb_files_main=$(find app -type f -name "*.erb" ! -name "*.turbo_stream.erb" | wc -l)
+          echo "ERB_FILES_MAIN=${erb_files_main}" >> $GITHUB_ENV
+      - name: Compare ERB file counts
+        run: |
+          if [ "$ERB_FILES_PR" -gt "$ERB_FILES_MAIN" ]; then
+            echo "Error: The number of ERB files has increased in this PR."
+            exit 1
+          else
+            echo "Success: The number of ERB files has not increased."
+          fi
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - name: Scan for security vulnerabilities in Ruby on Rails application
+        run: bin/brakeman --no-pager
+      - name: Scan for security vulnerabilities in Ruby dependencies
+        run: |
+          bin/bundler-audit --update
+          bin/ruby-audit update
+          bin/ruby-audit
+
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - name: Lint code for consistent style
+        run: bin/rubocop -f github
+
+  i18n-tasks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+      - name: Run i18n-tasks check
+        run: bin/i18n-tasks health
