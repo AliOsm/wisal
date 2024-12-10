@@ -23,5 +23,11 @@ module Wisal
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.i18n.available_locales = %i[ar en]
+    config.i18n.default_locale = :ar
+    config.i18n.load_path += Rails.root.glob("config/locales/**/*.{rb,yml}")
+
+    config.middleware.use Rack::Deflater
   end
 end

@@ -1,3 +1,25 @@
+GIT
+  remote: https://github.com/instrumentl/rails-cloudflare-turnstile.git
+  revision: ae743aca30d1e04ece446edd62409dc499ad1675
+  specs:
+    rails_cloudflare_turnstile (0.2.1)
+      faraday (>= 1.0, < 3.0)
+      rails (>= 6.0, < 9)
+
+GIT
+  remote: https://github.com/phlex-ruby/phlex-rails.git
+  revision: 4cd9cb311fc77674b9733a83b12edec3db88e4b4
+  specs:
+    phlex-rails (2.0.0.rc1)
+      phlex (= 2.0.0.rc1)
+      railties (>= 6.1, < 9)
+
+GIT
+  remote: https://github.com/ruby-ui/ruby_ui.git
+  revision: d7616461ef505f4ba9ecda1c6f720ead7d49908e
+  specs:
+    ruby_ui (1.0.0.beta1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -76,6 +98,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     benchmark (0.4.0)
     bigdecimal (3.1.8)
     bindex (0.8.1)
@@ -83,10 +106,12 @@ GEM
       msgpack (~> 1.2)
     brakeman (6.2.2)
       racc
+    browser (6.2.0)
     builder (3.3.0)
     bundler-audit (0.9.2)
       bundler (>= 1.2.0, < 3)
       thor (~> 1.0)
+    cancancan (3.6.1)
     capybara (3.40.0)
       addressable
       matrix
@@ -101,21 +126,53 @@ GEM
     crass (1.0.6)
     cssbundling-rails (1.4.1)
       railties (>= 6.0.0)
+    csv (3.3.0)
     date (3.4.1)
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    devise (4.9.4)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0)
+      responders
+      warden (~> 1.2.3)
+    devise-i18n (1.12.1)
+      devise (>= 4.9.0)
     drb (2.2.1)
     erubi (1.13.0)
     et-orbi (1.2.11)
       tzinfo
+    faraday (2.12.2)
+      faraday-net_http (>= 2.0, < 3.5)
+      json
+      logger
+    faraday-net_http (3.4.0)
+      net-http (>= 0.5.0)
+    ffi (1.17.0-aarch64-linux-gnu)
+    ffi (1.17.0-aarch64-linux-musl)
+    ffi (1.17.0-arm-linux-gnu)
+    ffi (1.17.0-arm-linux-musl)
+    ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x86-linux-gnu)
+    ffi (1.17.0-x86-linux-musl)
+    ffi (1.17.0-x86_64-darwin)
+    ffi (1.17.0-x86_64-linux-gnu)
+    ffi (1.17.0-x86_64-linux-musl)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
+    get_process_mem (1.0.0)
+      bigdecimal (>= 2.0)
+      ffi (~> 1.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
     highline (3.1.1)
       reline
+    httparty (0.22.0)
+      csv
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     i18n-tasks (1.0.14)
@@ -143,6 +200,7 @@ GEM
     loofah (2.23.1)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
+    lru_redux (1.1.0)
     mail (2.8.1)
       mini_mime (>= 0.1.1)
       net-imap
@@ -150,9 +208,19 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.2)
+    meilisearch (0.29.0)
+      httparty (~> 0.17)
+    meilisearch-rails (0.14.1)
+      meilisearch (~> 0.28)
+    meta-tags (2.22.1)
+      actionpack (>= 6.0.0, < 8.1)
     mini_mime (1.1.5)
     minitest (5.25.4)
     msgpack (1.7.5)
+    multi_xml (0.7.1)
+      bigdecimal (~> 3.1)
+    net-http (0.6.0)
+      uri
     net-imap (0.5.1)
       date
       net-protocol
@@ -175,10 +243,19 @@ GEM
       racc (~> 1.4)
     nokogiri (1.17.0-x86_64-linux)
       racc (~> 1.4)
+    oj (3.16.7)
+      bigdecimal (>= 3.0)
+      ostruct (>= 0.2)
+    orm_adapter (0.5.0)
+    ostruct (0.6.1)
+    pagy (9.3.3)
     parallel (1.26.3)
     parser (3.3.6.0)
       ast (~> 2.4.1)
       racc
+    phlex (2.0.0.rc1)
+    phlex-icons (2.0.0)
+      phlex (>= 1.11)
     propshaft (1.1.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -223,6 +300,10 @@ GEM
     rails-i18n (8.0.1)
       i18n (>= 0.7, < 2)
       railties (>= 8.0.0, < 9)
+    rails_performance (1.4.1)
+      browser
+      railties
+      redis
     railties (8.0.0)
       actionpack (= 8.0.0)
       activesupport (= 8.0.0)
@@ -235,9 +316,16 @@ GEM
     rake (13.2.1)
     rdoc (6.8.1)
       psych (>= 4.0.0)
+    redis (5.3.0)
+      redis-client (>= 0.22.0)
+    redis-client (0.22.2)
+      connection_pool
     regexp_parser (2.9.3)
     reline (0.5.12)
       io-console (~> 0.5)
+    responders (3.1.1)
+      actionpack (>= 5.2)
+      railties (>= 5.2)
     rexml (3.3.9)
     rubocop (1.69.1)
       json (~> 2.3)
@@ -307,6 +395,12 @@ GEM
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.2)
+    sys-cpu (1.1.0)
+      ffi (~> 1.1)
+    sys-filesystem (1.5.3)
+      ffi (~> 1.1)
+    tailwind_merge (0.13.3)
+      lru_redux (~> 1.1)
     terminal-table (1.6.0)
     thor (1.3.2)
     thruster (0.1.9)
@@ -325,6 +419,8 @@ GEM
     unicode-emoji (4.0.4)
     uri (1.0.2)
     useragent (0.16.11)
+    warden (1.2.9)
+      rack (>= 2.0.9)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -357,23 +453,40 @@ DEPENDENCIES
   bootsnap
   brakeman
   bundler-audit (~> 0.9.1)
+  cancancan (~> 3.6, >= 3.6.1)
   capybara
   cssbundling-rails
   debug
+  devise (~> 4.9, >= 4.9.4)
+  devise-i18n (~> 1.12, >= 1.12.1)
+  get_process_mem (~> 1.0)
   i18n-tasks (~> 1.0, >= 1.0.14)
   jbuilder
   jsbundling-rails
+  meilisearch-rails (~> 0.14.1)
+  meta-tags (~> 2.22, >= 2.22.1)
+  oj (~> 3.16, >= 3.16.7)
+  pagy (~> 9.3, >= 9.3.2)
+  phlex-icons (~> 2.0)
+  phlex-rails!
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.0)
+  rails-i18n (~> 8.0, >= 8.0.1)
+  rails_cloudflare_turnstile!
+  rails_performance (~> 1.4, >= 1.4.1)
   rubocop-rails-omakase
   ruby_audit (~> 2.3, >= 2.3.1)
+  ruby_ui!
   selenium-webdriver
   solid_cable
   solid_cache
   solid_queue
   sqlite3 (>= 2.1)
   stimulus-rails
+  sys-cpu (~> 1.1)
+  sys-filesystem (~> 1.5, >= 1.5.3)
+  tailwind_merge (~> 0.13.3)
   thruster
   turbo-rails
   tzinfo-data
