@@ -1,3 +1,6 @@
 ---
 ar:
-  hello: مرحبا
+  reports:
+    create:
+      success: تم إرسال البلاغ بنجاح
+  wisal: وِصال

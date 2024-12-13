@@ -1,3 +1,6 @@
 ---
 en:
-  hello: Hello
+  reports:
+    create:
+      success: Report created successfully
+  wisal: Wisal
