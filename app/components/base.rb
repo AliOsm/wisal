@@ -1,6 +1,7 @@
 class Components::Base < Phlex::HTML
   include Components
   include RubyUI
+  include PhlexIcons
 
   # Include any helpers you want to be available across all components
   include ::Devise::Controllers::UrlHelpers

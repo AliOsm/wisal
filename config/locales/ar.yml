@@ -1,5 +1,8 @@
 ---
 ar:
+  home:
+    report_missing: الإبلاغ عن مفقود
+    search_reports: البحث عن مفقود
   reports:
     create:
       success: تم إرسال البلاغ بنجاح
