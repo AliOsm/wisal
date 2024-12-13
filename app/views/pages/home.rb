@@ -1,4 +1,6 @@
 class Views::Pages::Home < Views::Base
+  def title = t("home.title")
+
   def view_template
     div(class: "flex flex-col items-center justify-center h-screen bg-[url('/home_bg.jpg')] bg-cover bg-center") do
       div(class: "flex flex-col items-center justify-center space-y-2 mt-8") do

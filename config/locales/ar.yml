@@ -3,6 +3,7 @@ ar:
   home:
     report_missing: الإبلاغ عن مفقود
     search_reports: البحث عن مفقود
+    title: الرئيسية
   reports:
     create:
       success: تم إرسال البلاغ بنجاح

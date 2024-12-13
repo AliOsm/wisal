@@ -1,5 +1,9 @@
 ---
 en:
+  home:
+    report_missing: Report missing
+    search_reports: Search reports
+    title: Home
   reports:
     create:
       success: Report created successfully
