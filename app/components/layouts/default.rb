@@ -3,7 +3,7 @@ class Components::Layouts::Default < Components::Base
     doctype
 
     html dir: html_dir, lang: I18n.locale do
-      # render Shared::Head.new
+      render Shared::Head.new
 
       body do
         # render Shared::Flash.new
