@@ -6,16 +6,13 @@ class Report < ApplicationRecord
 
   has_one_attached :image
 
-  validates :name, presence: true
-  validates :age, presence: true
-  validates :last_known_place, presence: true
-  validates :characteristics, presence: true
-  validates :contact, presence: true
+  validates :name, :age, :contact, presence: true
+  validates :age, numericality: { only_integer: true, greater_than: 0 }
 
   meilisearch do
     attribute %i[name age last_known_place characteristics contact]
 
     searchable_attributes %i[name last_known_place characteristics contact]
-    filterable_attributes :age
+    filterable_attributes %i[age]
   end
 end
