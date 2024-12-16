@@ -6,8 +6,7 @@ class Components::Layouts::Default < Components::Base
       render Shared::Head.new
 
       body do
-        # render Shared::Flash.new
-        # render Shared::Navbar.new
+        render Shared::Flash.new
 
         main(&block)
       end
