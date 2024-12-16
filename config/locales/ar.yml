@@ -1,10 +1,29 @@
 ---
 ar:
+  activerecord:
+    attributes:
+      report:
+        age: العمر
+        characteristics: المواصفات
+        contact: وسيلة التواصل
+        image: الصورة
+        last_known_place: آخر موقع معروف
+        name: الاسم
   home:
     report_missing: الإبلاغ عن مفقود
     search_reports: البحث عن مفقود
     title: الرئيسية
   reports:
     create:
+      captcha_error_message: يجب أن تتخطى الاختبار لتتمكن من ارسال رسالتك.
       success: تم إرسال البلاغ بنجاح
+    new:
+      submit: تبليغ
+      title: الإبلاغ عن مفقود
+  shared:
+    errors:
+      title: 'يجب معالجة الأخطاء التالية:'
+    flash_messages:
+      alert: حدث خطأ!
+      notice: نجحت العملية!
   wisal: وِصال
