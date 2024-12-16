@@ -258,7 +258,7 @@ GEM
       ast (~> 2.4.1)
       racc
     phlex (2.0.0.rc1)
-    phlex-icons (2.0.0)
+    phlex-icons (2.2.0)
       phlex (>= 1.11)
     propshaft (1.1.0)
       actionpack (>= 7.0.0)
@@ -475,7 +475,7 @@ DEPENDENCIES
   meta-tags (~> 2.22, >= 2.22.1)
   oj (~> 3.16, >= 3.16.7)
   pagy (~> 9.3, >= 9.3.2)
-  phlex-icons (~> 2.0)
+  phlex-icons (~> 2.2)
   phlex-rails!
   propshaft
   puma (>= 5.0)
