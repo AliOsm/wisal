@@ -247,7 +247,7 @@ GEM
       racc (~> 1.4)
     nokogiri (1.17.0-x86_64-linux)
       racc (~> 1.4)
-    oj (3.16.7)
+    oj (3.16.8)
       bigdecimal (>= 3.0)
       ostruct (>= 0.2)
     orm_adapter (0.5.0)
@@ -473,7 +473,7 @@ DEPENDENCIES
   jsbundling-rails
   meilisearch-rails (~> 0.14.1)
   meta-tags (~> 2.22, >= 2.22.1)
-  oj (~> 3.16, >= 3.16.7)
+  oj (~> 3.16)
   pagy (~> 9.3, >= 9.3.2)
   phlex-icons (~> 2.0)
   phlex-rails!
