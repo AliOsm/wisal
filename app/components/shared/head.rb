@@ -23,7 +23,7 @@ class Components::Shared::Head < Components::Base
 
   def links_and_scripts
     link rel: "manifest", href: "/manifest.json"
-    link rel: "icon", href: "/favicon.png", type: "image/png"
+    link rel: "icon", href: "/icon.png", type: "image/png"
 
     link rel: "preconnect", href: "https://fonts.googleapis.com"
     link rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: true
@@ -31,8 +31,8 @@ class Components::Shared::Head < Components::Base
     link href: "https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&family=Noto+Naskh+Arabic&family=Tajawal&display=swap",
          rel: "stylesheet"
 
-    stylesheet_link_tag "application", data_turbo_track: Rails.env.production? ? "reload" : ""
-    javascript_include_tag "application", data_turbo_track: Rails.env.production? ? "reload" : "", defer: true, nonce: true
+    stylesheet_link_tag "application", data_turbo_track: "reload"
+    javascript_include_tag "application", data_turbo_track: "reload", type: "module", nonce: true
 
     raw(cloudflare_turnstile_script_tag)
   end
