@@ -1,4 +1,6 @@
 class ReportsController < ApplicationController
+  include Pagy::Backend
+
   before_action :set_report, only: :create
   before_action :validate_cloudflare_turnstile, only: :create
 
@@ -20,6 +22,16 @@ class ReportsController < ApplicationController
     else
       render Views::Reports::New.new(report: @report), status: :unprocessable_entity
     end
+  end
+
+  def search
+    @pagy, @reports = pagy_meilisearch(
+      Report.pagy_search(
+        params[:name] + " " + params[:last_known_place] + " " + params[:characteristics],
+        filter: params[:age].present? ? "age = #{params[:age]}" : nil
+      ),
+      limit: 100
+    )
   end
 
   private

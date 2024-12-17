@@ -17,8 +17,8 @@ class Views::Reports::New < Views::Base
             render Components::Shared::Errors.new(resource: @report)
 
             div(class: "space-y-2") do
-              render Components::Forms::Field.new(form:, type: :text, name: :name, placeholder: Report.human_attribute_name(:name))
-              render Components::Forms::Field.new(form:, type: :number, name: :age, placeholder: Report.human_attribute_name(:age))
+              render Components::Forms::Field.new(form:, type: :text, name: :name, required: true, placeholder: Report.human_attribute_name(:name))
+              render Components::Forms::Field.new(form:, type: :number, name: :age, required: true, placeholder: Report.human_attribute_name(:age))
               render Components::Forms::Field.new(form:, type: :text, name: :last_known_place, placeholder: Report.human_attribute_name(:last_known_place))
               render Components::Forms::TextArea.new(form:, name: :characteristics, placeholder: Report.human_attribute_name(:characteristics))
 

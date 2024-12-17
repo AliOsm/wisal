@@ -9,6 +9,7 @@ en:
         image: Image
         last_known_place: Last known place
         name: Name
+  close: Close
   home:
     report_missing: Report missing
     search_reports: Search reports
@@ -17,9 +18,15 @@ en:
     create:
       captcha_error_message: You must pass the test to be able to send your message.
       success: Report created successfully
+    index:
+      title: Search reports
     new:
       submit: Report
       title: Report missing
+    search_result:
+      unknown: Unknown
+    search_results:
+      title: Search results
   shared:
     errors:
       title: 'Please fix the following errors:'

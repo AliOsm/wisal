@@ -9,6 +9,7 @@ ar:
         image: الصورة
         last_known_place: آخر موقع معروف
         name: الاسم
+  close: إغلاق
   home:
     report_missing: الإبلاغ عن مفقود
     search_reports: البحث عن مفقود
@@ -17,9 +18,16 @@ ar:
     create:
       captcha_error_message: يجب أن تتخطى الاختبار لتتمكن من ارسال رسالتك.
       success: تم إرسال البلاغ بنجاح
+    index:
+      submit: ابحث
+      title: ابحث في البلاغات
     new:
       submit: تبليغ
       title: الإبلاغ عن مفقود
+    search_result:
+      unknown: غير معروف
+    search_results:
+      title: نتائج البحث
   shared:
     errors:
       title: 'يجب معالجة الأخطاء التالية:'

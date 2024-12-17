@@ -13,6 +13,7 @@ class Components::Base < Phlex::HTML
   include Phlex::Rails::Helpers::Routes
   include Phlex::Rails::Helpers::StylesheetLinkTag
   include Phlex::Rails::Helpers::T
+  include Phlex::Rails::Helpers::TurboFrameTag
 
   register_output_helper :cloudflare_turnstile
   register_output_helper :cloudflare_turnstile_script_tag
