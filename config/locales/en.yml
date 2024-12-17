@@ -26,6 +26,8 @@ en:
     search_result:
       unknown: Unknown
     search_results:
+      description: 'Number of results: %{count}'
+      no_results: No results
       title: Search results
   shared:
     errors:

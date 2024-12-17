@@ -27,6 +27,8 @@ ar:
     search_result:
       unknown: غير معروف
     search_results:
+      description: 'عدد النتائج: %{count}'
+      no_results: لا يوجد نتائج
       title: نتائج البحث
   shared:
     errors:

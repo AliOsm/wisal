@@ -11,11 +11,16 @@ class Components::Reports::SearchResults < Components::Base
       DialogContent(size: :lg) do
         DialogHeader do
           DialogTitle { t("reports.search_results.title") }
+          DialogDescription { t("reports.search_results.description", count: @reports.count) }
         end
 
         DialogMiddle(class: "max-h-96 overflow-y-auto border p-2 rounded-lg space-y-2") do
-          @reports.each do |report|
-            render Components::Reports::SearchResult.new(report:)
+          if true || @reports.empty?
+            DialogDescription { t("reports.search_results.no_results") }
+          else
+            @reports.each do |report|
+              render Components::Reports::SearchResult.new(report:)
+            end
           end
         end
 
