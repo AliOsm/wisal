@@ -42,8 +42,8 @@ class Components::Reports::SearchResult < Components::Base
   private
 
   def image
-    if @report.image.url.present?
-      @report.image.url
+    if @report.image.present?
+      ActiveStorage::Current.set(url_options: { host: "https://wisal.app", protocol: "https" }) { @report.image.url(expires_in: nil) }
     else
       "/report.webp"
     end
