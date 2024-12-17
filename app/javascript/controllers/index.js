@@ -10,5 +10,8 @@ application.register("cloudflare-turnstile", CloudflareTurnstileController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import RubyUi__DialogController from "./ruby_ui/dialog_controller"
+application.register("ruby-ui--dialog", RubyUi__DialogController)
+
 import RubyUi__DismissAlertController from "./ruby_ui/dismiss_alert_controller"
 application.register("ruby-ui--dismiss-alert", RubyUi__DismissAlertController)
