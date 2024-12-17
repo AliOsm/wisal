@@ -19,6 +19,8 @@ en:
       captcha_error_message: You must pass the test to be able to send your message.
       success: Report created successfully
     index:
+      description: 'Number of reports: %{count}'
+      submit: Search
       title: Search reports
     new:
       submit: Report

@@ -19,6 +19,7 @@ ar:
       captcha_error_message: يجب أن تتخطى الاختبار لتتمكن من ارسال رسالتك.
       success: تم إرسال البلاغ بنجاح
     index:
+      description: 'عدد البلاغات المسجلة: %{count}'
       submit: ابحث
       title: ابحث في البلاغات
     new:

@@ -6,6 +6,7 @@ class Views::Reports::Index < Views::Base
       Card(class: "w-full max-w-md max-sm:mt-20") do
         CardHeader(class: "pb-4") do
           CardTitle { t("reports.index.title") }
+          CardDescription { t("reports.index.description", count: Report.count) }
         end
 
         CardContent(class: "pb-4") do
