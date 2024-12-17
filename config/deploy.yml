@@ -1,0 +1,95 @@
+service: wisal
+
+image: aliosm/wisal
+
+registry:
+  username: aliosm
+
+  password:
+    - KAMAL_REGISTRY_PASSWORD
+
+servers:
+  web:
+    hosts:
+      - 54.247.196.28
+    options:
+      network: "kamal_network"
+    labels:
+      traefik.http.routers.wisal.entrypoints: websecure
+      traefik.http.routers.wisal.rule: Host(`wisal.app`)
+      traefik.http.routers.wisal.tls: true
+      traefik.http.routers.wisal.tls.certresolver: letsencrypt
+
+volumes:
+  - /home/ubuntu/wisal/storage:/rails/storage
+
+traefik:
+  options:
+    network: "kamal_network"
+    publish:
+      - "443:443"
+    volume:
+      - "/letsencrypt/acme.json:/letsencrypt/acme.json"
+  args:
+    entryPoints.web.address: ":80"
+    entryPoints.websecure.address: ":443"
+    entryPoints.web.http.redirections.entryPoint.to: websecure
+    entryPoints.web.http.redirections.entryPoint.scheme: https
+    entryPoints.web.http.redirections.entrypoint.permanent: true
+    certificatesResolvers.letsencrypt.acme.email: "easybooksdev@gmail.com"
+    certificatesResolvers.letsencrypt.acme.storage: "/letsencrypt/acme.json"
+    certificatesResolvers.letsencrypt.acme.httpchallenge: true
+    certificatesResolvers.letsencrypt.acme.httpchallenge.entrypoint: web
+
+# Remember to run `kamal env push` after making changes!
+env:
+  clear:
+    REDIS_URL: redis://wisal-redis:6379
+    MEILISEARCH_URL: http://wisal-meilisearch:7700
+    # RAILS_LOG_LEVEL: debug
+  secret:
+    - RAILS_MASTER_KEY
+    - MEILI_MASTER_KEY
+
+accessories:
+  redis:
+    image: redis:7.4.1
+    roles:
+      - web
+    options:
+      network: "kamal_network"
+    directories:
+      - data:/data
+
+  meilisearch:
+    image: getmeili/meilisearch:v1.11.3
+    roles:
+      - web
+    options:
+      network: "kamal_network"
+    env:
+      clear:
+        --env: production
+        --no-analytics: true
+        --http-addr: localhost:7700
+        --max-indexing-memory: 10Gb
+      secret:
+        - MEILI_MASTER_KEY
+    directories:
+      - data.ms:/meili_data/data.ms
+      - dumps:/meili_data/dumps
+      - snapshots:/meili_data/snapshots
+
+healthcheck:
+  log_lines: 10_000
+  max_attempts: 25
+
+asset_path: /rails/public/assets
+
+ssh:
+  user: ubuntu
+
+builder:
+  remote:
+    arch: amd64
+    host: ssh://ubuntu@54.247.196.28
