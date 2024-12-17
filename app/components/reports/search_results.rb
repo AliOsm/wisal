@@ -15,7 +15,7 @@ class Components::Reports::SearchResults < Components::Base
         end
 
         DialogMiddle(class: "max-h-96 overflow-y-auto border p-2 rounded-lg space-y-2") do
-          if true || @reports.empty?
+          if @reports.empty?
             DialogDescription { t("reports.search_results.no_results") }
           else
             @reports.each do |report|
