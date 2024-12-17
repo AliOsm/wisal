@@ -82,7 +82,7 @@ accessories:
 
 healthcheck:
   log_lines: 10_000
-  max_attempts: 25
+  max_attempts: 7
 
 asset_path: /rails/public/assets
 
