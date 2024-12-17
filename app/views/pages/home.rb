@@ -10,7 +10,7 @@ class Views::Pages::Home < Views::Base
           Hero::PaperAirplane(variant: :solid, class: "size-6 scale-x-[-1]")
         end
 
-        Link(variant: :primary, size: :xl, class: "flex items-center gap-3 w-full pe-5 ms-3") do
+        Link(href: reports_path, variant: :primary, size: :xl, class: "flex items-center gap-3 w-full pe-5 ms-3") do
           span { t("home.search_reports") }
 
           Hero::MagnifyingGlass(variant: :solid, class: "size-6")

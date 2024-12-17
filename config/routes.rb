@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "pages#home"
 
-  resources :reports, only: %i[new create]
+  resources :reports, only: %i[index new create]
 end

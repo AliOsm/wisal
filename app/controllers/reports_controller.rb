@@ -4,6 +4,10 @@ class ReportsController < ApplicationController
 
   rescue_from RailsCloudflareTurnstile::Forbidden, with: :cloudflare_turnstile_handler
 
+  def index
+    render Views::Reports::Index.new
+  end
+
   def new
     @report = Report.new
 
