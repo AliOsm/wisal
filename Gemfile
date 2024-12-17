@@ -6,12 +6,12 @@ gem "devise-i18n", "~> 1.12", ">= 1.12.1"
 gem "get_process_mem", "~> 1.0"
 gem "meilisearch-rails", "~> 0.14.1"
 gem "meta-tags", "~> 2.22", ">= 2.22.1"
-gem "oj", "~> 3.16", ">= 3.16.7"
+gem "oj", "~> 3.16", ">= 3.16.8"
 gem "pagy", "~> 9.3", ">= 9.3.2"
 gem "rails_cloudflare_turnstile", github: "instrumentl/rails-cloudflare-turnstile"
 gem "rails-i18n", "~> 8.0", ">= 8.0.1"
 gem "rails_performance", "~> 1.4", ">= 1.4.1"
-gem "phlex-icons", "~> 2.0"
+gem "phlex-icons", "~> 2.2"
 gem "phlex-rails", github: "phlex-ruby/phlex-rails"
 gem "ruby_ui", github: "ruby-ui/ruby_ui"
 gem "sys-cpu", "~> 1.1"
@@ -25,7 +25,7 @@ group :development do
 end
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 8.0.0"
+gem "rails", "~> 8.0", ">= 8.0.1"
 # The modern asset pipeline for Rails [https://github.com/rails/propshaft]
 gem "propshaft"
 # Use sqlite3 as the database for Active Record
