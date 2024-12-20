@@ -16,7 +16,7 @@ gem "phlex-rails", github: "phlex-ruby/phlex-rails"
 gem "ruby_ui", github: "ruby-ui/ruby_ui"
 gem "sys-cpu", "~> 1.1"
 gem "sys-filesystem", "~> 1.5", ">= 1.5.3"
-gem "tailwind_merge", "~> 0.13.3"
+gem "tailwind_merge", "~> 0.14.0"
 
 group :development do
   gem "bundler-audit", "~> 0.9.1"
